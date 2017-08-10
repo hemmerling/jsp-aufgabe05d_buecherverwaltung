@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.Book;
+
 /**
  *
  * @author rhemmerling
@@ -43,7 +45,7 @@ public class BookReadAction extends HttpServlet {
         
         HttpSession session = request.getSession();
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
-        List<String[]> bookList = bookService.get();
+        List<Book> bookList = bookService.get();
         session.setAttribute(BOOKLIST, bookList);
         System.out.println("BookReadAction");
     

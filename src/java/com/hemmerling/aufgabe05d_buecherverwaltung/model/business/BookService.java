@@ -15,9 +15,14 @@ import com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.*;
  */
 public class BookService {
 
-    /* static */ List<String[]> bookList;
+    /* static */ List<Book> bookList;
     private static BookService instance = null;
 
+    {
+        bookList.add(new Book(99, "title", "autor", "1999", "1-23", "Sachbuch"));
+    }
+    
+    
     public BookService() {
     }
 
@@ -28,21 +33,19 @@ public class BookService {
         return instance;
     }
 
-    public List<String[]> get() {
+    public List<Book> get() {
         if (bookList == null) {
-            bookList = new ArrayList<String[]>();
+            bookList = new ArrayList<Book>();
         }
         return bookList;
     }
 
     public void add(Book book) {
-        bookList.add(new String[]{String.valueOf(book.getId()), book.getTitle(), book.getAutor(), 
-                                  book.getYearOfRelease(), book.getIsbn(), book.getGenre()});
+        bookList.add(book);
     }
 
     public void set(int id, Book book) {
-        bookList.set(id, new String[]{String.valueOf(book.getId()), book.getTitle(), 
-                     book.getAutor(), book.getYearOfRelease(), book.getIsbn(), book.getGenre()});
+        bookList.set(id, book);
     }
 
     public void remove(int id) {

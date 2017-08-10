@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hemmerling.aufgabe05d_buecherverwaltung.model.business.*;
+import com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.Book;
 
 /**
  *
@@ -57,7 +58,7 @@ public class FrontController extends HttpServlet {
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
 
         // BookService bookService = BookService.getInstance(); // Singleton
-        List<String[]> books = bookService.get();
+        List<Book> books = bookService.get();
         
         String action = request.getParameter(ACTION);
 

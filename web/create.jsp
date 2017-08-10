@@ -57,15 +57,15 @@
                 int id = Integer.valueOf(idString);
                 out.println("<input type='hidden' name='action' value='set' />");
                 out.println("<input type='hidden' name='id' value='" + idString + "' />");
-                out.println("ID: <input type='text' name='id' value='" + bookService.get().get(id)[0] + "'/>");
-                out.println("Titel: <input type='text' name='titel' value='" + bookService.get().get(id)[1] + "'/>");
-                out.println("Autor: <input type='text' name='autor' value='" + bookService.get().get(id)[2] + "'/>");
-                out.println("Erscheinungsjahr: <input type='text' name='erscheinungsjahr' value='" + bookService.get().get(id)[3] + "'/>");
-                out.println("ISBN: <input type='text' name='isbn' value='" + bookService.get().get(id)[4] + "'/>");
-                out.println("Genre: <input type='text' name='genre' value='" + bookService.get().get(id)[5] + "'/>");
+                out.println("ID: <input type='text' name='id' value='" + bookService.get().get(id).getId() + "'/>");
+                out.println("Titel: <input type='text' name='titel' value='" + bookService.get().get(id).getTitle() + "'/>");
+                out.println("Autor: <input type='text' name='autor' value='" + bookService.get().get(id).getAutor() + "'/>");
+                out.println("Erscheinungsjahr: <input type='text' name='yearofrelease' value='" + bookService.get().get(id).getYearOfRelease() + "'/>");
+                out.println("ISBN: <input type='text' name='isbn' value='" + bookService.get().get(id).getIsbn() + "'/>");
+                out.println("Genre: <input type='text' name='genre' value='" + bookService.get().get(id).getGenre() + "'/>");
             } else { %>
                 <input type="hidden" name="action" value="create" />
-                ID: <input type="text" name="id" />
+                ID: <input type="text" name="id" value = "0" />
                 Titel: <input type="text" name="titel" />
                 Autor: <input type="text" name="autor" />
                 Erscheinungsjahr: <input type="text" name="erscheinungsjahr" />
