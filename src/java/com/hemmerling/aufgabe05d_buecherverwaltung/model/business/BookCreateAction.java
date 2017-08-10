@@ -33,7 +33,7 @@ public class BookCreateAction {
         String yearOfRelease = request.getParameter(YEAROFRELEASE);
         String isbn = request.getParameter(ISBN);
         String genre = request.getParameter(GENRE);
-        
+           
         if ((isbn != null && !isbn.trim().isEmpty())
                 & (title != null && !title.trim().isEmpty())) {
             Book book = new Book(id, title, autor, yearOfRelease, isbn, genre);

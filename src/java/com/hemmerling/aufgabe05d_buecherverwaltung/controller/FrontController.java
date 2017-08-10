@@ -37,7 +37,6 @@ public class FrontController extends HttpServlet {
     private static final String CREATEPAGE = "create.jsp";
     private static final String READPAGE = "read.jsp";
 
-    private static final String BOOKLIST = "booklist";
     private static final String BOOKSERVICE = "bookservice";
 
     /**
@@ -57,9 +56,6 @@ public class FrontController extends HttpServlet {
         HttpSession session = request.getSession();
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
 
-        // BookService bookService = BookService.getInstance(); // Singleton
-        List<Book> books = bookService.get();
-        
         String action = request.getParameter(ACTION);
 
         if (action != null && !action.trim().isEmpty()) {

@@ -6,6 +6,8 @@
 
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.business.BookService"%>
+<%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.Book"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,23 +19,25 @@
         <jsp:include page = "header.jsp" />
         <h1>Booklist</h1>
         <%
-            List<String[]> bookList = (ArrayList<String[]>) session.getAttribute("BOOKLIST");
+            BookService bookService = (BookService) session.getAttribute("bookservice");
+
+            List<Book> bookList = bookService.get();
             if (bookList == null /* || items.isEmpty() */) {
         %>
         <% } else { %>
 <!--        <ol>
-            <% for (String[] book : bookList) {%>
-            <li><%= book[0]%>&nbsp;<%= book[1]%>&nbsp;<%= book[2]%>&nbsp;
-                <%= book[3]%>&nbsp;<%= book[4]%>&nbsp;<%= book[5]%></li>
+            <% for (Book book : bookList) {%>
+            <li><%= book.getId()%>&nbsp;<%= book.getTitle()%>&nbsp;<%= book.getAuthor()%>&nbsp;
+                <%= book.getYearOfRelease()%>&nbsp;<%= book.getIsbn()%>&nbsp;<%= book.getGenre()%></li>
                 <% } %>
         </ol>-->
         
             <% for (int ii=0; ii<bookList.size();ii++) {%>          
-            <li><%= ii%>&nbsp;<%= bookList.get(ii)[0]%>&nbsp;<%= bookList.get(ii)[1]%>&nbsp;
-                <%= bookList.get(ii)[2]%>&nbsp;<%= bookList.get(ii)[3]%>&nbsp;
-                <%= bookList.get(ii)[4]%>&nbsp;<%= bookList.get(ii)[5]%>&nbsp;
-                <a href="FrontController?action=delete&id=<%= ii%>">Löschen</a>&nbsp;
-                <a href="FrontController?action=update&id=<%= ii%>">Bearbeiten</a></li>
+            <li><%= ii%>&nbsp;<%= bookList.get(ii).getId()%>&nbsp;<%= bookList.get(ii).getTitle()%>&nbsp;
+                <%= bookList.get(ii).getAuthor()%>&nbsp;<%= bookList.get(ii).getYearOfRelease()%>&nbsp;
+                <%= bookList.get(ii).getIsbn()%>&nbsp;<%= bookList.get(ii).getGenre()%>&nbsp;
+                <a href="FrontController?action=delete&id2=<%= ii%>">Löschen</a>&nbsp;
+                <a href="FrontController?action=update&id2=<%= ii%>">Bearbeiten</a></li>
                 <% } %>
         
         <% }%>

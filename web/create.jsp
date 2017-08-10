@@ -6,7 +6,7 @@
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.io.PrintWriter"%>
-<%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.persitence.*"%>
+<%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.*"%>
 <%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.business.*"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -24,17 +24,17 @@
         <script type="text/javascript">
             function fillForm1() {
                 document.getElementsByName("id")[0].value = '0';
-                document.getElementsByName("titel")[0].value = 'Buch für Männer';
-                document.getElementsByName("autor")[0].value = 'Joe Doe';
-                document.getElementsByName("erscheinungsjahr")[0].value = 2017;
+                document.getElementsByName("title")[0].value = 'Buch f&uuml;r M&auml;nner';
+                document.getElementsByName("author")[0].value = 'Joe Doe';
+                document.getElementsByName("yearofrelease")[0].value = 2017;
                 document.getElementsByName("isbn")[0].value = '1-84356-028-3';
                 document.getElementsByName("genre")[0].value = 'sachbuch';
             }
             function fillForm2() {
                 document.getElementsByName("id")[0].value = '1';
-                document.getElementsByName("titel")[0].value = 'Mein Frauenbuch';
-                document.getElementsByName("autor")[0].value = 'Mary Doe';
-                document.getElementsByName("erscheinungsjahr")[0].value = "2016";
+                document.getElementsByName("title")[0].value = 'Mein Frauenbuch';
+                document.getElementsByName("author")[0].value = 'Mary Doe';
+                document.getElementsByName("yearofrelease")[0].value = "2016";
                 document.getElementsByName("isbn")[0].value = '1-84356-028-4';
                 document.getElementsByName("genre")[0].value = 'sachbuch';
             }
@@ -52,23 +52,23 @@
             if ((request.getParameter("action")!=null) &&
                 (request.getParameter("action").equals("update")) &&
                 (request.getParameter("id")!=null)) {
-                BookService bookService = BookService.getInstance(); // Singleton
+                BookService bookService = (BookService) session.getAttribute("bookservice");
                 String idString = request.getParameter("id");
                 int id = Integer.valueOf(idString);
                 out.println("<input type='hidden' name='action' value='set' />");
                 out.println("<input type='hidden' name='id' value='" + idString + "' />");
                 out.println("ID: <input type='text' name='id' value='" + bookService.get().get(id).getId() + "'/>");
-                out.println("Titel: <input type='text' name='titel' value='" + bookService.get().get(id).getTitle() + "'/>");
-                out.println("Autor: <input type='text' name='autor' value='" + bookService.get().get(id).getAutor() + "'/>");
-                out.println("Erscheinungsjahr: <input type='text' name='yearofrelease' value='" + bookService.get().get(id).getYearOfRelease() + "'/>");
+                out.println("Title: <input type='text' name='title' value='" + bookService.get().get(id).getTitle() + "'/>");
+                out.println("Autor: <input type='text' name='author' value='" + bookService.get().get(id).getAuthor() + "'/>");
+                out.println("Year of Release: <input type='text' name='yearofrelease' value='" + bookService.get().get(id).getYearOfRelease() + "'/>");
                 out.println("ISBN: <input type='text' name='isbn' value='" + bookService.get().get(id).getIsbn() + "'/>");
                 out.println("Genre: <input type='text' name='genre' value='" + bookService.get().get(id).getGenre() + "'/>");
             } else { %>
                 <input type="hidden" name="action" value="create" />
                 ID: <input type="text" name="id" value = "0" />
-                Titel: <input type="text" name="titel" />
-                Autor: <input type="text" name="autor" />
-                Erscheinungsjahr: <input type="text" name="erscheinungsjahr" />
+                Titel: <input type="text" name="title" />
+                Author: <input type="text" name="author" />
+                Year of Release: <input type="text" name="yearofrelease" />
                 ISBN: <input type="text" name="isbn" />
                 Genre: <input type="text" name="genre" />
             <% } %>

@@ -47,7 +47,6 @@ public class BookReadAction extends HttpServlet {
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
         List<Book> bookList = bookService.get();
         session.setAttribute(BOOKLIST, bookList);
-        System.out.println("BookReadAction");
     
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(READPAGE);
         requestDispatcher.forward(request, response);

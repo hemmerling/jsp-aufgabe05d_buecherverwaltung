@@ -17,11 +17,6 @@ public class BookService {
 
     /* static */ List<Book> bookList;
     private static BookService instance = null;
-
-    {
-        bookList.add(new Book(99, "title", "autor", "1999", "1-23", "Sachbuch"));
-    }
-    
     
     public BookService() {
     }
@@ -37,6 +32,7 @@ public class BookService {
         if (bookList == null) {
             bookList = new ArrayList<Book>();
         }
+        System.out.println(bookList.get(0).getAuthor());
         return bookList;
     }
 

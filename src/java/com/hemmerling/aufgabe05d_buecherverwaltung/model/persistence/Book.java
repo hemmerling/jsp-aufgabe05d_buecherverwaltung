@@ -15,16 +15,16 @@ public class Book {
 
     private int id = 0;
     private String title = "";
-    private String autor = "";
+    private String author = "";
     private String yearOfRelease = "2017";
     private String isbn = "";
     private String genre = "";
 
-    public Book(int id, String title, String autor, String yearOfRelease,
+    public Book(int id, String title, String author, String yearOfRelease,
             String isbn, String genre) {
         this.id = id;
         this.title = title;
-        this.autor = autor;
+        this.author = author;
         this.yearOfRelease = yearOfRelease;
         this.isbn = isbn;
         this.genre = genre;
@@ -46,12 +46,12 @@ public class Book {
         this.title = titel;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getYearOfRelease() {
