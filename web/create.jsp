@@ -51,9 +51,9 @@
 //            } 
             if ((request.getParameter("action")!=null) &&
                 (request.getParameter("action").equals("update")) &&
-                (request.getParameter("id")!=null)) {
+                (request.getParameter("id2")!=null)) {
                 BookService bookService = (BookService) session.getAttribute("bookservice");
-                String idString = request.getParameter("id");
+                String idString = request.getParameter("id2");
                 int id = Integer.valueOf(idString);
                 out.println("<input type='hidden' name='action' value='set' />");
                 out.println("<input type='hidden' name='id' value='" + idString + "' />");

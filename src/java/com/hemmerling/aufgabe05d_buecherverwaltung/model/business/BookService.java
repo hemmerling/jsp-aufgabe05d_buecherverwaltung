@@ -32,7 +32,6 @@ public class BookService {
         if (bookList == null) {
             bookList = new ArrayList<Book>();
         }
-        System.out.println(bookList.get(0).getAuthor());
         return bookList;
     }
 
