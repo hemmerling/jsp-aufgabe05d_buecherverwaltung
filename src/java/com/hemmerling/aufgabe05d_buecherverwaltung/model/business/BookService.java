@@ -19,6 +19,9 @@ public class BookService {
     private static BookService instance = null;
     
     public BookService() {
+        if (bookList == null) {
+            bookList = new ArrayList<Book>();
+        }
     }
 
     public static BookService getInstance() {
